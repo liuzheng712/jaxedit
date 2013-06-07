@@ -1214,6 +1214,14 @@ typejax.parser = function(input, modstart, modend){
             this.addText("\\" + csname + "{" + envname + "}", where);
           }
           break;
+        case "figure":
+          this.closeOldMath(where);
+          if (csname == "begin") {
+            this.beginGroup("env", envname, where, where + 8 + envname.length);
+          } else {
+            this.endGroup("env", envname, where, where + 6 + envname.length);
+          }
+          break;
         // unknown environment, could be a math or text environment
         default:
           var thmname = this.thmnames[envname];
@@ -2143,6 +2151,7 @@ typejax.latex = {
   grpmode : {
     "bmath": "block",
     "center" : "main",
+    "figure" : "main",
     "enumerate": "block",
     "frame": "main",
     "frametitle": "block",

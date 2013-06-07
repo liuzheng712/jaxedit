@@ -37,6 +37,11 @@ div.center {
   text-align: center;
 }
 
+div.figure {
+  border: 1px dashed #C1C1C1;
+  text-align: center;
+}
+
 div.verbatim {
   border: 1px dashed #C1C1C1;
   margin: 1px;
